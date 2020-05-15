@@ -1,25 +1,39 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NomeUsuario from './components/NomeUsuario/NomeUsuario';
+import Mensagem from './components/Mensagem/Mensagem';
+import Enviar from './components/Enviar/Enviar';
+import Conversa from './components/Conversa/Conversa';
+import styled from 'styled-components';
+
+const Principal = styled.div`
+  display: flex;
+  /* justify-content: ce; */
+  border: solid 1px black;
+  height: 900px;
+  width: 500px;
+  flex-direction: column-reverse;
+  /* justify-content: space-around; */
+`
+
+const Elementos = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Principal>
+      <div>
+        <Conversa />
+        <Elementos>
+          <NomeUsuario />
+          <Mensagem />
+          <Enviar />
+        </Elementos>
+      </div>
+    </Principal>
   );
 }
 
