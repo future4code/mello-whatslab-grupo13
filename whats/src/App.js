@@ -1,24 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NomeUsuario from './components/NomeUsuario/NomeUsuario';
+import Mensagem from './components/Mensagem/Mensagem';
+import Enviar from './components/Enviar/Enviar';
+import Conversa from './components/Conversa/Conversa';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Conversa />
+      <NomeUsuario />
+      <Mensagem />
+      <Enviar />
     </div>
   );
 }
