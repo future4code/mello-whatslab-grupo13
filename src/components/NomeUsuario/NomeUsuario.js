@@ -8,4 +8,4 @@ export default class NomeUsuario extends Component {
       <input placeholder="usuario"/>
     );
   }
-}
+} 
