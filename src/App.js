@@ -8,9 +8,10 @@ import './App.css';
 import styled from 'styled-components';
 
 const Container = styled.div`
-background-image: url(https://cdn.pixabay.com/photo/2017/08/24/03/41/milky-way-2675322_1280.jpg);
+background-image: rgb(255,255,255);
 display: flex;
-justify-content:center;
+justify-content: center;
+
 
 `
 
@@ -22,13 +23,14 @@ const Principal = styled.div`
   width: 500px;
   flex-direction: column;
   justify-content: flex-end;
-  background-color: rgb(255,255,255,0.7);
+  background-color: rgb(229,221,213);
    
 `
 
 const Elementos = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
 `
 
 const Mensagens = styled.div`
@@ -37,27 +39,38 @@ const Mensagens = styled.div`
   margin-bottom: 20px;
   margin-right: 10px;
   margin-left: 10px;
+  margin-top: 20px;
   border-radius: 7px;
   padding: 7px;
+  max-width: 50%;
+  ;
+  
 `
 
 const InputUsuario = styled.input`
    
     padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgb(0,0,0,0.6);
+    border-radius: 5px;
+    border: 1px solid rgb(255,255,255);
+    width: 15%;
 `
 
 const InputMensagem = styled.input`
-    width: 90%;
+    width: 60%;
     padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgb(0,0,0,0.6);
+    border-radius: 5px;
+    border: 1px solid rgb(255,255,255);
 `
-
+const Botao = styled.button`
+    border-radius: 5px;
+    border: 1px solid rgb(255,255,255);
+    width: 12%;
+    font-weight: bold;
+    background-color: white;
+`
 const Formulario = styled.form`
 display: inline;
-
+    
 `
 
 class App extends React.Component {
@@ -78,17 +91,25 @@ class App extends React.Component {
   const novoWhats = {
     nome: this.state.valorInputUsuario,
     mensagem: this.state.valorInputMensagem
+    
   };
 
   const novosWhats = [...this.state.whats, novoWhats];
 
   this.setState({ 
     whats: novosWhats, 
-   valorInputUsuario:"", 
+   //valorInputUsuario:"", 
    valorInputMensagem:""
   });
+
+  
  
 };
+
+   onSubmitForm(event) {
+
+     event.preventDefault()
+  } 
 
 
 
@@ -120,10 +141,9 @@ class App extends React.Component {
         <Mensagens>
           {listaDeWhats}
         </Mensagens>
-        <Formulario>
+       
+       <Formulario onSubmit={this.onSubmitForm}>
         <Elementos>
-
-        
 
         <InputUsuario
          value={this.state.valorInputUsuario}
@@ -136,11 +156,8 @@ class App extends React.Component {
          onChange={this.onChangeInputMensagem}
          placeholder={"Mensagem"}
          />
+         <Botao onClick={this.adicionarMensagem}>Enviar</Botao> 
 
-         <button
-         onClick={this.adicionarMensagem}>Enviar
-         </button>
-         
         </Elementos>
         </Formulario>
       </Principal>
